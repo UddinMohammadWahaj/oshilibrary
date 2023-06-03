@@ -7,11 +7,12 @@ import oshi.hardware.HardwareAbstractionLayer;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity  {
+    public static void main(String... args) {
+        SystemInfo systemInfo = new SystemInfo();
+        HardwareAbstractionLayer hardware = systemInfo.getHardware();
+        CentralProcessor processor = hardware.getProcessor();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        System.out.println(processor.toString());
     }
 }
